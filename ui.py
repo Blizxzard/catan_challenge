@@ -6,7 +6,7 @@ from tkinter import messagebox, scrolledtext, ttk
 from collections import Counter
 
 from config import AI_CONFIG, CANVAS_BG, DEV_CARD_NAMES, PLAYER_COLORS, RESOURCE_MAP, RESOURCE_NAMES, FelixAI_CONFIG
-from felixAI import FelixAI
+from felixAI import FelixAI, MinimaxAI
 from game import Game
 # -------------------------
 # UI
@@ -29,8 +29,6 @@ class CatanUI:
                 # default to minimax if ai_type not set
                 if getattr(p, 'ai_type', None) == 'felix':
                     self.ai_instances[p.id] = FelixAI(game, p.id, FelixAI_CONFIG)
-                elif getattr(p, 'ai_type', None) == 'raphi':
-                    self.ai_instances[p.id] = MinimaxAI(game, p.id, AI_CONFIG)
         
         main_frame = tk.Frame(root)
         main_frame.grid(row=0, column=0, sticky="nsew")

@@ -7,6 +7,19 @@ import time
 
 from config import FelixAI_CONFIG
 
+class MinimaxAI:
+    """
+    Helper-only AI class: provides the same helper functions as MinimaxAI
+    (move generation, trade ratio, apply-move helpers, dev-card simulation,
+    evaluation helper, next-player helper) but does NOT implement any search
+    or decision logic. get_best_move returns None (no decision).
+    """
+
+    def __init__(self, game, player_id, config=None):
+        self.game = game
+        self.player_id = player_id
+        self.config = config or FelixAI_CONFIG
+        self.start_time = 0
 
 class FelixAI:
     """
